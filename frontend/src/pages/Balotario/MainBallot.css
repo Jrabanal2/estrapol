@@ -1,0 +1,90 @@
+.ballot-container {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+  }
+  
+  .background-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+  
+  .background-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .ballot-content {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    color: white;
+    text-align: center;
+  }
+  
+  .ballot-content h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(219, 15, 15, 0.5);
+    color: #f1c40f;
+  }
+  
+  .ballot-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .topics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  
+  .topics-card {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(7px);
+    background-color: rgba(17, 87, 16, 0.753);
+    padding: 1.5rem;
+    text-decoration: none;
+    color: #fefffd;
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .topics-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.416);
+  }
+  
+  .topics-card img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1rem;
+  }
+  
+  .topics-card span {
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  @media (max-width: 768px) {
+    .topics-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .ballot-content h1{
+      font-size: 14px;
+    }
+
+    .ballot-content p{
+      font-size: 12px;
+    }
+  }

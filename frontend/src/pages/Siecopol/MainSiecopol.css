@@ -1,0 +1,27 @@
+.instrucciones {
+  margin: 5px 30px;
+  font-size: 14px;
+  text-align: justify;
+}
+
+.instrucciones h4 {
+  margin: 0;
+}
+
+.instrucciones p {
+  margin: 3px;
+}
+
+.advertencia {
+  color: red;
+}
+
+.button_instrucciones {
+  display: grid;
+  place-items: center;
+}
+
+.start-exam-button {
+  margin: 4px;
+  width: auto;
+}
