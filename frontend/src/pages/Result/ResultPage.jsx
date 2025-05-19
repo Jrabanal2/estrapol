@@ -64,7 +64,7 @@ const ResultPage = () => {
         <h1>{getExamTitle()}</h1>
         <p>Estimado usuario, su examen virtual ha finalizado.</p>
         <p>Usted ha obtenido:</p>
-        <p className='puntaje'>{calculateScore()} PUNTO(S)</p>
+        <p className='puntaje'>{correct} PUNTO(S)</p>
         <p>Conforme al detalle siguiente:</p>
         
         <div className="result-details">

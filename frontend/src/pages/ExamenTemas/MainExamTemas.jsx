@@ -147,11 +147,10 @@ const MainExamTemas = () => {
               max={maxQuestions || 1}
               value={questionCount}
               onChange={(e) => {
-                const value = Math.min(
-                  Math.max(1, parseInt(e.target.value) || 1),
-                  maxQuestions || 1
+                const value = e.target.value;
+                setQuestionCount(
+                  value === "" ? "" : Math.min(Math.max(parseInt(value, 10), 1), maxQuestions || 1)
                 );
-                setQuestionCount(value);
               }}
               disabled={!selectedTopic || maxQuestions === 0}
               required
