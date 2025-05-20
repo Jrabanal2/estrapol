@@ -108,7 +108,7 @@ const MainExamTemas = () => {
       
       <div className="exam-content">
         <div className="exam-header">
-          <img src="/images/favicon.ico" alt="Logo" />
+          <img src="/images/logo_transparente.png" alt="Logo" />
           <h4>POLICÍA NACIONAL DEL PERÚ</h4>
           <h2>Proceso de Ascenso Suboficiales de Armas 2025 - Promoción 2026</h2>
           <h3>Módulo de Examen por Temas</h3>
