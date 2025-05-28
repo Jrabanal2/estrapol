@@ -5,7 +5,7 @@ const WhatsAppChat = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleOpenChat = () => {
-    const phoneNumber = '51960099454';
+    const phoneNumber = '51948593198';
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=Hola! deseo información para obtener mi usuario y contraseña para ingresar al módulo de Estudio para el Ascenso de Suboficiales de Armas`;
     window.open(whatsappUrl, '_blank');
   };
