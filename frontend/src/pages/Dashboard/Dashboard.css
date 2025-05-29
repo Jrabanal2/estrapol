@@ -51,7 +51,7 @@
     border-radius: 10px;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(7px);
-    background-color: rgba(17, 87, 16, 0.753);
+    background-color: rgba(17, 87, 16, 0.7);
     padding: 2rem;
     text-align: center;
     text-decoration: none;
@@ -87,7 +87,17 @@
     }
     
     .modules-grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .module-card img {
+    width: 60px; 
+    height: 60px;
+    }
+
+    .module-card span {
+      font-size: 0.8rem; 
     }
     
     .dashboard-header h1 {
