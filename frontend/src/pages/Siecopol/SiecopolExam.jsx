@@ -9,28 +9,33 @@ const TOPICS_ORDER = [
   'topic_01', 'topic_02', 'topic_03', 'topic_04', 'topic_05',
   'topic_06', 'topic_07', 'topic_08', 'topic_09', 'topic_10',
   'topic_11', 'topic_12', 'topic_13', 'topic_14', 'topic_15',
-  'topic_16', 'topic_17', 'topic_18'
+  'topic_16', 'topic_17', 'topic_18', 'topic_19', 'topic_20',
+  'topic_21', 'topic_22'
 ];
 
 const QUESTIONS_PER_TOPIC = {
-  'topic_01': 8,
-  'topic_02': 4,
-  'topic_03': 7,
-  'topic_04': 9,
-  'topic_05': 5,
-  'topic_06': 4,
-  'topic_07': 9,
-  'topic_08': 5,
-  'topic_09': 12,
-  'topic_10': 12,
-  'topic_11': 2,
-  'topic_12': 4,
+  'topic_01': 7,
+  'topic_02': 2,
+  'topic_03': 6,
+  'topic_04': 7,
+  'topic_05': 3,
+  'topic_06': 8,
+  'topic_07': 3,
+  'topic_08': 4,
+  'topic_09': 3,
+  'topic_10': 7,
+  'topic_11': 11,
+  'topic_12': 11,
   'topic_13': 3,
-  'topic_14': 4,
-  'topic_15': 6,
-  'topic_16': 2,
+  'topic_14': 3,
+  'topic_15': 3,
+  'topic_16': 3,
   'topic_17': 2,
-  'topic_18': 2
+  'topic_18': 2,
+  'topic_19': 3,
+  'topic_20': 2,
+  'topic_21': 5,
+  'topic_22': 2
 };
 
 const EXAM_DURATION = 2 * 60 * 60; // 2 horas en segundos
