@@ -231,3 +231,53 @@
     font-size: 12px;
   }
 }
+
+/* Contenedor del select de voz */
+.contenedor-voice {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 10px;
+}
+
+/* Estilo del label */
+.select-voice label {
+  margin-right: 5px;
+  color: #399bfc;
+}
+
+/* Estilo del select */
+.select-voice select {
+  padding: 8px 12px;
+  border: 1px solid #399bfc;
+  border-radius: 4px;
+  background-color: #d2d3d2;
+  font-size: 14px;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .select-voice {
+    display: flex;
+    flex-direction: column; 
+  }
+
+  .contenedor-voice {
+    width: 100%; /* Ocupa todo el ancho */
+    flex-direction: center; /* Label arriba, select abajo */
+    align-items: center;
+  }
+
+  .select-voice {
+    text-align: center;
+    font-size: 11px;
+  }
+
+  .select-voice select {
+    margin: 0 auto;
+    height: 30px;
+    width: 100%;
+    font-size: 11px
+  }
+}
