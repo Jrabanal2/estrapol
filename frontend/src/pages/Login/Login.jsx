@@ -17,6 +17,11 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Limpiar tokens viejos antes de loguear
+    localStorage.removeItem('token');
+    localStorage.removeItem('profile');
+
     try {
       await login(formData);
       navigate('/dashboard');
@@ -40,7 +45,6 @@ const Login = () => {
           <h1>POLICÍA NACIONAL DEL PERÚ</h1>
           <h3>ESTUDIO ESTRATÉGICO POLICIAL</h3>
           <h4>Suboficiales de Armas</h4>
-          
           <input
             type="email"
             name="mail"
@@ -70,8 +74,6 @@ const Login = () => {
         {error && <div className="error-message">{error}</div>}
         <button type="submit">Ingresar</button>
       </form>
-      
-      {/* Componente del Chatbot de WhatsApp */}
       <WhatsAppChat />
     </div>
   );

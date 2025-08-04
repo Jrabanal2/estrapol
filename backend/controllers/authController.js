@@ -6,21 +6,17 @@ export const register = async (req, res) => {
   try {
     const { username, mail, password } = req.body;
 
-    // Validar campos obligatorios
     if (!username || !mail || !password) {
       return res.status(400).json({ message: 'Todos los campos son obligatorios' });
     }
 
-    // Verificar si el correo ya existe
     const existingUser = await User.findOne({ mail });
     if (existingUser) {
       return res.status(400).json({ message: 'El correo ya está registrado' });
     }
 
-    // Hash de la contraseña
     const hashedPassword = await bcrypt.hash(password, 12);
 
-    // Crear nuevo usuario (sin _id personalizado)
     const newUser = new User({
       username,
       mail,
@@ -29,11 +25,11 @@ export const register = async (req, res) => {
 
     await newUser.save();
 
-    // Generar token JWT
+    // Generar token por 7 días e incluir role
     const token = jwt.sign(
-      { id: newUser._id, mail: newUser.mail },
+      { id: newUser._id, mail: newUser.mail, role: newUser.role || 'user' },
       process.env.JWT_SECRET,
-      { expiresIn: '1h' }
+      { expiresIn: '7d' }
     );
 
     res.status(201).json({ result: newUser, token });
@@ -47,23 +43,21 @@ export const login = async (req, res) => {
   try {
     const { mail, password } = req.body;
 
-    // Buscar usuario
     const existingUser = await User.findOne({ mail });
     if (!existingUser) {
-      return res.status(404).json({ message: 'correo invalido' });
+      return res.status(404).json({ message: 'Correo inválido' });
     }
 
-    // Validar contraseña
     const isPasswordCorrect = await bcrypt.compare(password, existingUser.password);
     if (!isPasswordCorrect) {
-      return res.status(400).json({ message: 'Contraseña inválidas' });
+      return res.status(400).json({ message: 'Contraseña inválida' });
     }
 
-    // Generar token JWT
+    // Generar token por 7 días e incluir role
     const token = jwt.sign(
-      { id: existingUser._id, mail: existingUser.mail },
+      { id: existingUser._id, mail: existingUser.mail, role: existingUser.role || 'user' },
       process.env.JWT_SECRET,
-      { expiresIn: '1h' }
+      { expiresIn: '7d' }
     );
 
     res.status(200).json({ result: existingUser, token });
