@@ -151,27 +151,28 @@ const AudioPage = () => {
     return text.replace(/_/g, " ").toLowerCase();
   };
 
+  // --- TEXTO CON PAUSAS NATURALES ---
   const getTextToRead = useCallback(
     (question) => {
       let textToRead = `Pregunta ${currentQuestionIndex + 1}: ${formatTextForSpeech(
         question.question_text
-      )}`;
+      )}... `; // Pausa tras la pregunta
 
       if (readAllOptions) {
         question.options.forEach((option, index) => {
-          textToRead += ` Alternativa ${String.fromCharCode(
+          textToRead += `Alternativa ${String.fromCharCode(
             65 + index
-          )}: ${formatTextForSpeech(option)}.`;
+          )}: ${formatTextForSpeech(option)}... `; // Pausa entre opciones
         });
 
         const correctIndex = question.options.indexOf(
           question.correct_option
         );
-        textToRead += ` La respuesta correcta es la alternativa ${String.fromCharCode(
+        textToRead += `la respuesta correcta es la alternativa ${String.fromCharCode(
           65 + correctIndex
-        )}: ${formatTextForSpeech(question.correct_option)}.`;
+        )}: ${formatTextForSpeech(question.correct_option)}.`; // Pausa antes de respuesta
       } else {
-        textToRead += ` La respuesta correcta es: ${formatTextForSpeech(
+        textToRead += `la respuesta correcta es: ${formatTextForSpeech(
           question.correct_option
         )}.`;
       }
@@ -292,6 +293,7 @@ const AudioPage = () => {
     }
   };
 
+  // --- RENDER ---
   if (!user) return <div className="loading">Redirigiendo...</div>;
   if (isLoading) return <div className="loading">Cargando preguntas...</div>;
   if (error) return <div className="error">{error}</div>;
