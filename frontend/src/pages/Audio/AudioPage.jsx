@@ -156,13 +156,13 @@ const AudioPage = () => {
     (question) => {
       let textToRead = `Pregunta ${currentQuestionIndex + 1}: ${formatTextForSpeech(
         question.question_text
-      )}... `; // Pausa tras la pregunta
+      )}... `;
 
       if (readAllOptions) {
         question.options.forEach((option, index) => {
           textToRead += `Alternativa ${String.fromCharCode(
             65 + index
-          )}: ${formatTextForSpeech(option)}... `; // Pausa entre opciones
+          )}: ${formatTextForSpeech(option)}... `;
         });
 
         const correctIndex = question.options.indexOf(
@@ -170,7 +170,7 @@ const AudioPage = () => {
         );
         textToRead += `la respuesta correcta es la alternativa ${String.fromCharCode(
           65 + correctIndex
-        )}: ${formatTextForSpeech(question.correct_option)}.`; // Pausa antes de respuesta
+        )}: ${formatTextForSpeech(question.correct_option)}.`;
       } else {
         textToRead += `la respuesta correcta es: ${formatTextForSpeech(
           question.correct_option
@@ -290,6 +290,29 @@ const AudioPage = () => {
       setIsPlaying(true);
     } else {
       synthRef.current.cancel();
+    }
+  };
+
+  // --- NUEVAS FUNCIONES PARA ANTERIOR / SIGUIENTE ---
+  const handlePrevious = () => {
+    if (currentQuestionIndex > 0) {
+      setCurrentQuestionIndex((prev) => prev - 1);
+      currentCharIndex.current = 0;
+      synthRef.current.cancel();
+      if (isPlaying) {
+        setTimeout(() => setIsPlaying(true), 0);
+      }
+    }
+  };
+
+  const handleNext = () => {
+    if (currentQuestionIndex < questions.length - 1) {
+      setCurrentQuestionIndex((prev) => prev + 1);
+      currentCharIndex.current = 0;
+      synthRef.current.cancel();
+      if (isPlaying) {
+        setTimeout(() => setIsPlaying(true), 0);
+      }
     }
   };
 
@@ -482,13 +505,28 @@ const AudioPage = () => {
             )}
           </div>
 
-          <div className="boton_regresar">
+          {/* --- BOTONES ANTERIOR / SIGUIENTE --- */}
+          <div className="botones">
+            <button
+              onClick={handlePrevious}
+              disabled={currentQuestionIndex === 0}
+            >
+              Anterior
+            </button>
+            <button
+              onClick={handleNext}
+              disabled={currentQuestionIndex === questions.length - 1}
+            >
+              Siguiente
+            </button>
             <button
               onClick={() => navigate("/audio")}
               className="control-button back-button"
             >
-              <span className="icon">↩</span> Escoger otro tema
+              <span className="icon"></span> Escoger otro tema
             </button>
+          </div>
+          <div className="boton_regresar">
           </div>
         </div>
       </div>
