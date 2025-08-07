@@ -473,7 +473,7 @@ const AudioPage = () => {
             </div>
 
             {readAllOptions ? (
-              <div className="todas_alternativas">
+              <div className="todas_alternativas alternativas_audio">
                 <ul>
                   {currentQuestion.options.map((option, index) => (
                     <li key={index}>
@@ -514,16 +514,16 @@ const AudioPage = () => {
               Anterior
             </button>
             <button
-              onClick={handleNext}
-              disabled={currentQuestionIndex === questions.length - 1}
-            >
-              Siguiente
-            </button>
-            <button
               onClick={() => navigate("/audio")}
               className="control-button back-button"
             >
               <span className="icon"></span> Escoger otro tema
+            </button>
+            <button
+              onClick={handleNext}
+              disabled={currentQuestionIndex === questions.length - 1}
+            >
+              Siguiente
             </button>
           </div>
           <div className="boton_regresar">

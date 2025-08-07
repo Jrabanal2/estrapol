@@ -280,4 +280,8 @@
     width: 100%;
     font-size: 11px
   }
+
+  .alternativas_audio {
+      font-size: 12px;
+    }
 }
