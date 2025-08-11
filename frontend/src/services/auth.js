@@ -10,21 +10,30 @@ const authAxios = axios.create({
 });
 
 export const register = async (userData) => {
-  const response = await authAxios.post('/register', userData);
-  if (response.data.token) {
-    localStorage.setItem('profile', JSON.stringify(response.data.result));
-    localStorage.setItem('token', response.data.token);
+  try {
+    const response = await authAxios.post('/register', userData);
+    if (response.data.token) {
+      localStorage.setItem('profile', JSON.stringify(response.data.result));
+      localStorage.setItem('token', response.data.token);
+    }
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response?.data?.message || 'Error en el registro');
   }
-  return response.data;
 };
 
 export const login = async (credentials) => {
-  const response = await authAxios.post('/login', credentials);
-  if (response.data.token) {
-    localStorage.setItem('profile', JSON.stringify(response.data.result));
-    localStorage.setItem('token', response.data.token);
+  try {
+    const response = await authAxios.post('/login', credentials);
+    if (response.data.token) {
+      localStorage.setItem('profile', JSON.stringify(response.data.result));
+      localStorage.setItem('token', response.data.token);
+    }
+    return response.data;
+  } catch (error) {
+    // Aquí se captura el mensaje exacto del backend
+    throw new Error(error.response?.data?.message || 'Error al iniciar sesión');
   }
-  return response.data;
 };
 
 export const logout = () => {
