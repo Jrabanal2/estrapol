@@ -48,7 +48,7 @@ const Login = () => {
           <input
             type="email"
             name="mail"
-            placeholder='CORREO'
+            placeholder='USUARIO'
             value={formData.mail}
             onChange={handleChange}
             required
