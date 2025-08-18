@@ -19,14 +19,14 @@
   }
   
   .dashboard-content {
-    padding: 2rem;
+    padding: 1rem;
     max-width: 1200px;
     margin: 0 auto;
   }
   
   .dashboard-header {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 0rem;
   }
   
   .dashboard-header h1 {
@@ -43,7 +43,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
-    margin-top: 2rem;
+    margin-top: 1rem;
   }
   
   .module-card {
@@ -104,3 +104,189 @@
       font-size: 14px;
     }
   }
+
+/* ================== ESTILOS TEMPORIZADOR ================== */
+.temporizador {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.temporizador .countdown {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   font-weight: bold;
+   gap: 0.5rem;
+   flex-wrap: wrap;
+   position: relative;
+}
+
+/* 🔹 Texto superior del temporizador */
+.temporizador .countdown__title {
+   width: 100%;
+   font-size: 1.5rem;
+   font-weight: bold;
+   margin-bottom: 0;
+   text-align: center;
+   color: #ffffff;
+   text-transform: uppercase;
+   letter-spacing: 2px;
+}
+
+/* 🔹 Contenedor de cada bloque */
+.temporizador .countdown__item {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+/* Etiqueta de cada bloque */
+.temporizador .countdown__label {
+   margin-bottom: 0.3rem;
+   font-size: 0.8rem;
+   text-align: center;
+   color: rgba(255, 254, 254, 0.897);
+   text-transform: uppercase;
+}
+
+/* Cada bloque de tiempo */
+.temporizador .countdown__block {
+   background-color: #fff;
+   border-radius: 0.5rem;
+   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+   font-size: 3em;
+   width: 5rem;
+   height: 5rem;
+   transition: background-color 0.3s, box-shadow 0.3s;
+   position: relative;
+   color: #2ecc71; /* Verde por defecto */
+   overflow: hidden; /* 🆕 Oculta los dígitos que no están en vista */
+}
+
+/* 🆕 Nuevo contenedor para los dígitos que se animan */
+.temporizador .countdown__digit-group {
+   display: flex;
+   flex-direction: column-reverse; /* Para que el dígito del `b` esté arriba */
+   width: 100%;
+   height: 200%; /* Para que quepan los dos dígitos uno encima del otro */
+}
+
+/* Cuando falten 30 días o menos */
+.temporizador .countdown.urgent .countdown__block {
+   color: #e74c3c; /* Rojo */
+   animation: pulse-red 1s infinite alternate;
+}
+
+/* 🆕 Digitos individuales */
+.temporizador .countdown__digits {
+   width: 100%;
+   height: 50%; /* Cada dígito ocupa la mitad del `digit-group` */
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-weight: bold;
+}
+
+/* Animaciones */
+.temporizador .countdown__block--bounce {
+   animation: bounce 0.75s;
+}
+
+/* 🆕 Aplica la animación 'roll' al grupo de dígitos */
+.temporizador .countdown__block--bounce .countdown__digit-group {
+   animation: roll 0.75s ease-in-out forwards;
+}
+
+/* Mensaje cuando se alcanza la fecha */
+.temporizador .date-reached {
+   font-size: 2em;
+   font-weight: bold;
+   text-align: center;
+   color: #ffff33;
+   animation: pulse 2s infinite;
+}
+
+/* ================== RESPONSIVE ================== */
+@media (max-width: 768px) {
+   .temporizador .countdown__block {
+      font-size: 1.3em;
+      width: 3.5rem;
+      height: 3.5rem;
+   }
+
+   .temporizador .countdown__label {
+      font-size: 0.55rem;
+      margin-bottom: 0.2rem;
+   }
+
+   .temporizador .countdown__title {
+      font-size: 1rem;
+   }
+
+   .temporizador .date-reached {
+      font-size: 1.2em;
+   }
+}
+
+/* ✅ Para pantallas muy pequeñas (ej: < 480px) */
+@media (max-width: 480px) {
+   .temporizador .countdown__block {
+      font-size: 1em;
+      width: 3rem;
+      height: 3rem;
+   }
+
+   .temporizador .countdown__label {
+      font-size: 0.5rem;
+   }
+
+   .temporizador .countdown__title {
+      font-size: 0.9rem;
+   }
+}
+
+/* ================== ANIMACIONES ================== */
+@keyframes bounce {
+   from,
+   to {
+      animation-timing-function: ease-in;
+      transform: translateY(0);
+   }
+   50% {
+      animation-timing-function: ease-out;
+      transform: translateY(15%);
+   }
+}
+
+@keyframes roll {
+   from {
+      transform: translateY(-50%);
+   }
+   to {
+      transform: translateY(0);
+   }
+}
+
+@keyframes pulse {
+   0% {
+      transform: scale(1);
+   }
+   50% {
+      transform: scale(1.05);
+   }
+   100% {
+      transform: scale(1);
+   }
+}
+
+@keyframes pulse-red {
+   0% {
+      text-shadow: 0 0 5px rgba(231, 76, 60, 0.5);
+   }
+   100% {
+      text-shadow: 0 0 15px rgba(231, 76, 60, 0.8);
+   }
+}
