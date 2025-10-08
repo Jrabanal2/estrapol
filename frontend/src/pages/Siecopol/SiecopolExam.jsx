@@ -15,7 +15,7 @@ const TOPICS_ORDER = [
 
 const QUESTIONS_PER_TOPIC = {
   'topic_01': 7,
-  'topic_02': 2,
+  'topic_02': 1,
   'topic_03': 6,
   'topic_04': 7,
   'topic_05': 3,
@@ -23,7 +23,7 @@ const QUESTIONS_PER_TOPIC = {
   'topic_07': 3,
   'topic_08': 4,
   'topic_09': 3,
-  'topic_10': 7,
+  'topic_10': 8,
   'topic_11': 11,
   'topic_12': 11,
   'topic_13': 3,
