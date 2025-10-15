@@ -318,7 +318,7 @@ const SiecopolExam = () => {
       </div>
 
       <div className="name_usuario">
-        <p>{user.username}</p>
+        <p>Usuario: {user.username}</p>
       </div>
 
       <div className="contenedor_examen">
@@ -413,7 +413,7 @@ const SiecopolExam = () => {
           <div className="registro_respuestas">
             <ul className="resumen_resultado">
               <li>PREGUNTAS CONTESTADAS: {answeredCount}</li>
-              <li>INCORRECTAS SIN CONTESTAR: {incorrectCount}</li>
+              <li>PREGUNTAS SIN CONTESTAR: {questions.length - answeredCount}</li>
             </ul>
           </div>
 
