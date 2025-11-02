@@ -131,7 +131,7 @@ const Dashboard = () => {
               </div>
             </div>
           ) : (
-            <div className="date-reached">Semana de Exámenes ¡ÉXITOS!</div>
+            <div className="date-reached">Estarías en la Semana de Exámenes</div>
           )}
         </div>
 
