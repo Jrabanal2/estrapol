@@ -5,7 +5,7 @@ import './Dashboard.css';
 
 const Dashboard = () => {
   const [user, setUser] = useState(null);
-  const targetDate = new Date("2025-11-03T00:00:00");
+  const targetDate = new Date("2026-11-02T00:00:00");
 
   const calculateTimeLeft = () => {
     const now = new Date();
@@ -131,7 +131,7 @@ const Dashboard = () => {
               </div>
             </div>
           ) : (
-            <div className="date-reached">Estarías en la Semana de Exámenes</div>
+            <div className="date-reached">Semana de Exámenes !Exitos¡</div>
           )}
         </div>
 

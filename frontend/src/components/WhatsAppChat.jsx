@@ -6,7 +6,7 @@ const WhatsAppChat = () => {
 
   const handleOpenChat = () => {
     const phoneNumber = '51910342435';
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=Hola! deseo información para obtener mi usuario y contraseña para ingresar al módulo de Estudio para el Ascenso de Suboficiales de Armas`;
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=Hola! deseo información para obtener mi usuario y contraseña para ingresar al módulo de Estudio para el Ascenso de Suboficiales`;
     window.open(whatsappUrl, '_blank');
   };
 
