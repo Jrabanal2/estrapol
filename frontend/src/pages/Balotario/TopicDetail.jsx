@@ -158,7 +158,7 @@ const TopicDetail = () => {
   };
 
   const [selectedIndex, setSelectedIndex] = useState(null);
-  
+
   const formatTime = (seconds) => {
     const hrs = Math.floor(seconds / 3600);
     const mins = Math.floor((seconds % 3600) / 60);
@@ -197,8 +197,8 @@ const TopicDetail = () => {
         <h2>Estudio Estrategico Policial</h2>
         <h3>BALOTARIO DIDÁCTICO</h3>
         <p>
-          SIMULADOR DEL PROCESO DE ASCENSO DE SUBOFICIALES DE ARMAS 2025 -
-          PROMOCIÓN 2026
+          SIMULADOR DEL PROCESO DE ASCENSO DE SUBOFICIALES DE ARMAS 2026 -
+          PROMOCIÓN 2027
         </p>
       </div>
 
@@ -297,9 +297,12 @@ const TopicDetail = () => {
                 </div>
               ))}
 
-              <button className="ayuda" onClick={showHelp}>
-                Ayuda
-              </button>
+              {/* ✅ Botón de ayuda solo si hay contenido en la BD */}
+              {currentQuestion?.tips && currentQuestion.tips.trim() !== "" && (
+                <button className="ayuda" onClick={showHelp}>
+                  Ayuda
+                </button>
+              )}
             </div>
           </div>
 

@@ -314,7 +314,7 @@ const SiecopolExam = () => {
         <h1>POLICÍA NACIONAL DEL PERÚ</h1>
         <h2>Estudio Estrategico Policial</h2>
         <h3>Módulo de Examen Virtual</h3>
-        <p>SIMULADOR DEL PROCESO DE ASCENSO DE SUBOFICIALES DE ARMAS 2025 - PROMOCIÓN 2026</p>
+        <p>SIMULADOR DEL PROCESO DE ASCENSO DE SUBOFICIALES DE ARMAS 2026 - PROMOCIÓN 2027</p>
       </div>
 
       <div className="name_usuario">

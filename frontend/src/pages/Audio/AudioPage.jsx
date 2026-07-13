@@ -334,8 +334,8 @@ const AudioPage = () => {
         <h2>Estudio Estratégico Policial</h2>
         <h3>VERSIÓN AUDIO</h3>
         <p>
-          SIMULADOR DEL PROCESO DE ASCENSO DE SUBOFICIALES DE ARMAS 2025 -
-          PROMOCIÓN 2026
+          SIMULADOR DEL PROCESO DE ASCENSO DE SUBOFICIALES DE ARMAS 2026 -
+          PROMOCIÓN 2027
         </p>
       </div>
 
